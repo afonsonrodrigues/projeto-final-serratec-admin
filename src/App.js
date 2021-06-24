@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Produtos from './pages/Produtos'
 import NovoProduto from './pages/Produto/NovoProduto'
 import EditaProduto from './pages/Produto/EditaProduto'
-import Servicos from './pages/Categorias'
+import Categorias from './pages/Categorias'
 import NovaCategoria from './pages/Categoria/NovaCategoria'
 import EditaCategoria from './pages/Categoria/EditaCategoria'
 
@@ -28,8 +28,8 @@ function App() {
           <Route exact path="/produtos/:id">
             <EditaProduto />
           </Route>
-          <Route exact path="/servicos">
-            <Servicos />
+          <Route exact path="/categorias">
+            <Categorias />
           </Route>
           <Route exact path="/categoria/novo">
             <NovaCategoria />
