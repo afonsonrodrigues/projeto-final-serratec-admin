@@ -1,48 +1,29 @@
 import { Link } from 'react-router-dom'
-import { useHistory } from "react-router-dom";
+import './estilos.css'
 
-const NavBar = ({token, aoLogout}) => {
-
-  const history = useHistory();
-
-  const logout = () => {
-    history.push('/login')
-    aoLogout()
-  }
+const NavBar = () => {
 
   const Itens = () => {
-    if (token) {
+    
       return (
         <>
           <li className="nav-item">
-            <Link className="nav-link" to="/">Início</Link>
+            <Link className="nav-link" to="/categoria">Categorias</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/produtos">Produtos</Link>
+            <Link className="nav-link" to="/produto">Produtos</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/servicos">Serviços</Link>
-          </li>
-          <li className="nav-item">
-            <button className="nav-link btn btn-link" href="" onClick={logout}>Logout</button>
+            <Link className="nav-link" to="/pedido">Pedidos</Link>
           </li>
         </>
       )
-    }
-    return <>
-      <li className="nav-item">
-        <Link className="nav-link" to="/login">Login</Link>
-      </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/cadastro">Cadastre-se</Link>
-      </li>
-    </>
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar">
       <div>
-        <ul className="navbar-nav mr-auto">
+        <ul>
           {Itens()}
         </ul>
       </div>

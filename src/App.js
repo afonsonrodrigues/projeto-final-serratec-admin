@@ -2,40 +2,22 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './components/NavBar'
 import Pagina404 from './pages/Pagina404'
 import Home from './pages/Home'
-import Cadastro from './pages/Cadastro'
-import Login from './pages/Login'
 import Produtos from './pages/Produtos'
 import NovoProduto from './pages/Produto/NovoProduto'
 import EditaProduto from './pages/Produto/EditaProduto'
-import Servicos from './pages/Servicos'
+import Servicos from './pages/Categorias'
 import NovaCategoria from './pages/Categoria/NovaCategoria'
 import EditaCategoria from './pages/Categoria/EditaCategoria'
-import { useState } from 'react'
 
 function App() {
 
-  const [token, setToken] = useState('')
-  const onLogin = (token) => {
-    setToken(token)
-  }
-
-  const logout = () => {
-    setToken('')
-  }
-
   return (
     <BrowserRouter>
-      <Navbar token={token} aoLogout={logout}/>
+      <Navbar/>
       <div className="container">
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route path="/cadastro">
-            <Cadastro />
-          </Route>
-          <Route path="/login">
-            <Login onLogin={onLogin}/>
           </Route>
           <Route exact path="/produtos">
             <Produtos />

@@ -3,12 +3,12 @@ import http from '../../http'
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 
-const Servicos = () => {
+const Categorias = () => {
 
   const [categorias, setCategorias] = useState([])
 
   const obterCategorias = () => {
-    http.get('categorias')
+    http.get('categoria')
       .then(response => setCategorias(response.data))
   }
 
@@ -53,4 +53,4 @@ const Servicos = () => {
   )
 }
 
-export default Servicos
+export default Categorias
