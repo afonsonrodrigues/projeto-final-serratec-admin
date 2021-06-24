@@ -8,8 +8,8 @@ import Produtos from './pages/Produtos'
 import NovoProduto from './pages/Produto/NovoProduto'
 import EditaProduto from './pages/Produto/EditaProduto'
 import Servicos from './pages/Servicos'
-import NovoServico from './pages/Servico/NovoServico'
-import EditaServico from './pages/Servico/EditaServico'
+import NovaCategoria from './pages/Categoria/NovaCategoria'
+import EditaCategoria from './pages/Categoria/EditaCategoria'
 import { useState } from 'react'
 
 function App() {
@@ -49,11 +49,11 @@ function App() {
           <Route exact path="/servicos">
             <Servicos />
           </Route>
-          <Route exact path="/servicos/novo">
-            <NovoServico />
+          <Route exact path="/categoria/novo">
+            <NovaCategoria />
           </Route>
-          <Route exact path="/servicos/:id">
-            <EditaServico />
+          <Route exact path="/categoria/:id">
+            <EditaCategoria />
           </Route>
           <Route>
             <Pagina404 />

@@ -5,48 +5,43 @@ import { Link } from 'react-router-dom'
 
 const Servicos = () => {
 
-  const [servicos, setServicos] = useState([])
+  const [categorias, setCategorias] = useState([])
 
-  const formatter = new Intl.NumberFormat('pr-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
-
-  const obterServicos = () => {
-    http.get('servicos')
-      .then(response => setServicos(response.data))
+  const obterCategorias = () => {
+    http.get('categorias')
+      .then(response => setCategorias(response.data))
   }
 
   useEffect(() => {
-    obterServicos()
+    obterCategorias()
   }, [])
 
-  const excluir = (servico) => {
-    http.delete('servicos/' + servico.id)
-      .then(response => obterServicos())
+  const excluir = (categoria) => {
+    http.delete('categoria/' + categoria.id)
+      .then(response => obterCategorias())
   }
 
   return (
     <div>
-      <h1>Servicos</h1>
-      <Link className="btn btn-sm btn-outline-primary mb-3" to="/servicos/novo">+ servico</Link>
+      <h1>Categorias</h1>
+      <Link className="btn btn-sm btn-outline-primary mb-3" to="/categoria/novo">+ categorias</Link>
       <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
-            <th scope="col">Preço</th>
+            <th scope="col">Descrição</th>
             <th scope="col"> </th>
           </tr>
         </thead>
         <tbody>
-          {servicos.map(servico => <tr key={servico.id}>
-            <td>{servico.id}</td>
-            <td>{servico.nome}</td>
-            <td>{formatter.format(servico.preco)}</td>
+          {categorias.map(categoria => <tr key={categoria.id}>
+            <td>{categoria.id}</td>
+            <td>{categoria.nome}</td>
+            <td>{categoria.descricao}</td>
             <td>
-              <Link className="btn btn-sm btn-outline-info" to={`/servicos/${servico.id}`}>editar</Link>
-              <button type="button" className="ml-2 btn btn-sm btn-outline-danger" onClick={() => { excluir(servico) }}>excluir</button>
+              <Link className="btn btn-sm btn-outline-info" to={`/categoria/${categoria.id}`}>editar</Link>
+              <button type="button" className="ml-2 btn btn-sm btn-outline-danger" onClick={() => { excluir(categoria) }}>excluir</button>
             </td>
           </tr>)}
         </tbody>

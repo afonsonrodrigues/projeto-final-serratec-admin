@@ -4,15 +4,15 @@ import { useState } from "react"
 const NovoServico = () => {
 
   const [nome, setNome] = useState('')
-  const [preco, setPreco] = useState('')
+  const [descricao, setDescricao] = useState('')
 
   const salvar = (evento) => {
     evento.preventDefault()
-    const servico = {
+    const categoria = {
       nome: nome,
-      preco: preco
+      descricao: descricao
     }
-    http.post('servicos', servico)
+    http.post('categoria', categoria)
       .then(response => {
         console.log(response.data)
       })
@@ -25,15 +25,15 @@ const NovoServico = () => {
   return (
     <div className="row justify-content-center">
       <div className="col-md-6">
-        <h1>Adicionar servico</h1>
+        <h1>Adicionar Categoria</h1>
         <form onSubmit={salvar}>
           <div className="form-group">
             <label>Nome</label>
-            <input className="form-control" value={nome} onChange={(evento) => setNome(evento.target.value)} required />
+            <input className="form-control" type="text" value={nome} onChange={(evento) => setNome(evento.target.value)} required />
           </div>
           <div className="form-group">
-            <label>Preço</label>
-            <input className="form-control" type="number" step="0.01" value={preco} onChange={(evento) => setPreco(evento.target.value)} required />
+            <label>Descrição</label>
+            <input className="form-control" type="text" value={descricao} onChange={(evento) => setDescricao(evento.target.value)} required />
           </div>
           <button className="btn btn-outline-dark btn-block">
             Salvar
