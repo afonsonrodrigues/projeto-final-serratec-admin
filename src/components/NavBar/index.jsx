@@ -8,10 +8,10 @@ const NavBar = () => {
       return (
         <>
           <li className="nav-item">
-            <Link className="nav-link" to="/categoria">Categorias</Link>
+            <Link className="nav-link" to="/categorias">Categorias</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/produto">Produtos</Link>
+            <Link className="nav-link" to="/produtos">Produtos</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/pedido">Pedidos</Link>

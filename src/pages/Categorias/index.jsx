@@ -8,7 +8,7 @@ const Categorias = () => {
   const [categorias, setCategorias] = useState([])
 
   const obterCategorias = () => {
-    http.get('categoria')
+    http.get('categoria/todas')
       .then(response => setCategorias(response.data))
   }
 
